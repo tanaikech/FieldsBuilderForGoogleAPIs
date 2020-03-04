@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.2/themes/default/style.min.css">
+    <link rel="stylesheet" href="./FieldsBuilderForGoogleAPIs.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.2/jstree.min.js"></script>
+    <title>Fields Builder for Google APIs (Tanaike)</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">Fields Builder for Google APIs</div>
+        <p>Author: <a href="https://tanaikech.github.io/" target="_blank">Tanaike</a>, GitHub: <a href="https://github.com/tanaikech/FieldsBuilderForGoogleAPIs" target="_blank">FieldsBuilderForGoogleAPIs</a></p>
+        <p>Search APIs: <input type="text" id="searchapi" name="search"></p>
+        <p>APIs(<a id="documenturl" target="_blank">Official document</a>): <select id="selectapi"></select></p>
+        <p id="selectresourcediv" style="display: none;">Resources: <select id="selectresource"></select></p>
+        <p id="selectmethoddiv" style="display: none;">Methods: <select id="selectmethod"></select></p>
+        <p id="fields" style="display: none;"><label>Fields: <input type="text" id="fieldvalue" name="fields" readonly></label></p>
+        <p id="fieldsexp" style="display: none;">- Please use the created fields by copying and pasting to the fields property of Google APIs.</p>
+        <div id="checkcontrol" style="display: none;">
+            <button type="button" id="openall">Open all</button>
+            <button type="button" id="closeall">Close all</button>
+            <button type="button" id="checkall">Check all</button>
+            <button type="button" id="uncheckall">Uncheck all</button>
+        </div>
+        <div id="tree" style="display: none;"></div>
+        <div id="status"></div>
+    </div>
+    <script type="text/javascript" src="./FieldsBuilderForGoogleAPIs.js"></script>
+</body>
+
+</html>
