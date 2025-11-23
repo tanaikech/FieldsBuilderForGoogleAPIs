@@ -1,23 +1,42 @@
 # Fields Builder For Google APIs
 
-<a name="TOP"></a>
+<a name="top"></a>
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENCE)
-
-<a name="Overview"></a>
-
-# Overview
-
-**[FieldsBuilderForGoogleAPIs](https://sites.google.com/view/fields-builder) is a Web Application for building the fields value for using Google APIs. This is mainly used for developing the scripts for using Google APIs.**
-
-# Demo
 
 ![](images/demo.gif)
 
+<a name="overview"></a>
+
+# Overview
+
+**[FieldsBuilderForGoogleAPIs](https://sites.google.com/view/fields-builder) is a Web Application for building the `fields` parameter for Google APIs.**
+
+When using Google APIs, specifying the `fields` parameter allows you to retrieve only the data you need (Partial Response). This improves performance and reduces data usage. However, constructing this parameter manually can be complex, especially for deeply nested resources. This tool automates that process.
+
+# Features
+
+-   **Support for ALL Google APIs**: Dynamically loads the latest API discovery documents.
+-   **Nested Resources**: Fully supports APIs with deep resource hierarchies (e.g., Drive, Sheets).
+-   **Optimized Fields Generation**: Select a parent node to automatically include all its children in the fields string.
+-   **Modern UI**: Clean, dark-themed interface for better usability.
+-   **Standalone**: Runs entirely in the browser. No server-side code, no authorization, and no scopes required.
+
+# Usage
+
+1.  Access [https://sites.google.com/view/fields-builder](https://sites.google.com/view/fields-builder) using your web browser.
+2.  **Search/Select API**: Type to search or select an API from the dropdown (e.g., "Google Drive API").
+3.  **Select Resource**: Choose the resource you want to access (e.g., `files`).
+4.  **Select Method**: Choose the method (e.g., `list`).
+5.  **Select Fields**:
+    -   The response schema will be displayed as a tree.
+    -   Check the boxes for the fields you want to retrieve.
+    -   Selecting a parent node (e.g., `userEnteredValue`) will include it in the output, implying all its sub-fields.
+6.  **Copy**: Click the "Copy" button to copy the generated string to your clipboard.
+7.  **Paste**: Use the copied string as the value for the `fields` parameter in your API request.
+
 # Description
 
-After the API explorer was updated, the fields of APIs cannot be created by the web interface. But it is important for using the fields property. Because when the fields property is used, only the required values can be retrieved. This leads to the low cost. And even when `*` is used, there are some cases that all fields cannot be retrieved. So I created this as a Web Application. This web application can run with the standalone. No authorization and no scopes are required. This only creates the fields value for Google APIs.
-
-This web application can use for almost Google APIs. But, in the current stage, unfortunately, this cannot be used for all Google APIs because of several issues. Please be careful this. I have to apologize for this.
+After the Google API Explorer was updated, it became harder to visually construct the `fields` parameter. This tool bridges that gap. It parses the official Discovery documents to build an interactive tree view of the response schema.
 
 # URL of this web application
 
@@ -35,16 +54,22 @@ This web application can use for almost Google APIs. But, in the current stage, 
 
 # Author
 
-[Tanaike](https://tanaikech.github.io/about/)
+[Tanaike](https://tanaikech.github.io/)
 
-If you have any questions and commissions for me, feel free to tell me.
+[Donate](https://tanaikech.github.io/donate/)
 
 <a name="updatehistory"></a>
 
 # Update History
 
-- v1.0.0 (March 4, 2020)
+-   v1.0.0 (March 4, 2020)
+    -   Initial release.
 
-  1. Initial release.
+-   v2.0.0 (November 23, 2025)
+    -   Refactored core logic to support all Google APIs.
+    -   Fixed issues with circular references (e.g., Docs API).
+    -   Implemented recursive resource traversal.
+    -   Complete UI overhaul with Dark Mode.
+    -   Optimized fields string generation.
 
 [TOP](#top)

@@ -1,33 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.2/themes/default/style.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google API Fields Builder</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/themes/default/style.min.css" />
     <link rel="stylesheet" href="./FieldsBuilderForGoogleAPIs.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.2/jstree.min.js"></script>
-    <title>Fields Builder for Google APIs (Tanaike)</title>
+    
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.12/jstree.min.js"></script>
 </head>
 
 <body>
-    <div class="main">
-        <div class="title">Fields Builder for Google APIs</div>
-        <p>Author: <a href="https://tanaikech.github.io/" target="_blank">Tanaike</a>, GitHub: <a href="https://github.com/tanaikech/FieldsBuilderForGoogleAPIs" target="_blank">FieldsBuilderForGoogleAPIs</a></p>
-        <p>Search APIs: <input type="text" id="searchapi" name="search"></p>
-        <p>APIs(<a id="documenturl" target="_blank">Official document</a>): <select id="selectapi"></select></p>
-        <p id="selectresourcediv" style="display: none;">Resources: <select id="selectresource"></select></p>
-        <p id="selectmethoddiv" style="display: none;">Methods: <select id="selectmethod"></select></p>
-        <p id="fields" style="display: none;"><label>Fields: <input type="text" id="fieldvalue" name="fields" readonly></label></p>
-        <p id="fieldsexp" style="display: none;">- Please use the created fields by copying and pasting to the fields property of Google APIs.</p>
-        <div id="checkcontrol" style="display: none;">
-            <button type="button" id="openall">Open all</button>
-            <button type="button" id="closeall">Close all</button>
-            <button type="button" id="checkall">Check all</button>
-            <button type="button" id="uncheckall">Uncheck all</button>
+    <div class="container">
+        <header>
+            <h1>Google API Fields Builder</h1>
+            <div class="meta">
+                <span>Author: <a href="https://tanaikech.github.io/" target="_blank">Tanaike</a></span>
+                <span>GitHub: <a href="https://github.com/tanaikech/FieldsBuilderForGoogleAPIs" target="_blank">Repo</a></span>
+            </div>
+        </header>
+
+        <div class="controls-section">
+            <div class="control-group">
+                <label for="searchapi">Search API</label>
+                <input type="text" id="searchapi" placeholder="e.g., Drive, Sheets...">
+            </div>
+
+            <div class="control-group">
+                <label for="selectapi">Select API <a id="documenturl" target="_blank" class="doc-link" title="Open Official Documentation">📚</a></label>
+                <select id="selectapi">
+                    <option value="">Loading APIs...</option>
+                </select>
+            </div>
+
+            <div class="control-group" id="selectresourcediv" style="display: none;">
+                <label for="selectresource">Resource</label>
+                <select id="selectresource"></select>
+            </div>
+
+            <div class="control-group" id="selectmethoddiv" style="display: none;">
+                <label for="selectmethod">Method</label>
+                <select id="selectmethod"></select>
+            </div>
         </div>
-        <div id="tree" style="display: none;"></div>
-        <div id="status"></div>
+
+        <div id="status" class="status-message"></div>
+
+        <div id="fields" class="fields-section" style="display: none;">
+            <div class="fields-header">
+                <label for="fieldvalue">Generated Fields Parameter</label>
+                <button id="copyfields" class="btn-small">Copy</button>
+            </div>
+            <input type="text" id="fieldvalue" readonly placeholder="Select fields from the tree below...">
+            <p class="hint">Copy this string to the <code>fields</code> property in your API request.</p>
+        </div>
+
+        <div id="checkcontrol" class="tree-controls" style="display: none;">
+            <button type="button" id="openall" class="btn">Expand All</button>
+            <button type="button" id="closeall" class="btn">Collapse All</button>
+            <button type="button" id="checkall" class="btn">Select All</button>
+            <button type="button" id="uncheckall" class="btn">Deselect All</button>
+        </div>
+
+        <div id="tree" class="tree-container" style="display: none;"></div>
     </div>
+
     <script type="text/javascript" src="./FieldsBuilderForGoogleAPIs.js"></script>
 </body>
 
