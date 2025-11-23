@@ -13,6 +13,10 @@
 
 When using Google APIs, specifying the `fields` parameter allows you to retrieve only the data you need (Partial Response). This improves performance and reduces data usage. However, constructing this parameter manually can be complex, especially for deeply nested resources. This tool automates that process.
 
+# URL of this web application
+
+**[https://sites.google.com/view/fields-builder](https://sites.google.com/view/fields-builder)**
+
 # Features
 
 -   **Support for ALL Google APIs**: Dynamically loads the latest API discovery documents.
@@ -37,10 +41,6 @@ When using Google APIs, specifying the `fields` parameter allows you to retrieve
 # Description
 
 After the Google API Explorer was updated, it became harder to visually construct the `fields` parameter. This tool bridges that gap. It parses the official Discovery documents to build an interactive tree view of the response schema.
-
-# URL of this web application
-
-[https://sites.google.com/view/fields-builder](https://sites.google.com/view/fields-builder)
 
 ---
 
